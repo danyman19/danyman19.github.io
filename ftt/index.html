@@ -10,15 +10,16 @@
         background-image: url('background.jpg');
       }
 
-      #intro {
+      .intro {
         font-family: 'Orbitron', sans-serif;
       }
 
       #instructions {
         font-family: 'Orbitron', sans-serif;
+        font-size:20px;
       }
 
-      #intro_option {
+      .option {
         background-color: #CC00FE;
         border: none;
         color: #00C0FE;
@@ -27,46 +28,23 @@
         font-size: 16px;
       }
 
-      #howtoplay_option {
-        background-color: #CC00FE;
-        border: none;
-        color: #00C0FE;
-        padding: 15px 50px;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      #start_option {
-        background-color: #CC00FE;
-        border: none;
-        color: #00C0FE;
-        padding: 15px 50px;
-        text-align: center;
-        font-size: 16px;
-      }
-
-      #creators_option {
-        background-color: #CC00FE;
-        border: none;
-        color: #00C0FE;
-        padding: 15px 50px;
-        text-align: center;
-        font-size: 16px;
+      span {
+        font-weight:bold;
       }
 
     </style>
   </head>
 
   <body>
-    <button id = "intro_option" >Intro</button>
-    <button id = "howtoplay_option" >How To Play</button>
-    <button id = "start_option" >Start</button>
-    <button id = "creators_option" >Creators</button>
-    <h1>______________________________________________________________________________________________</h1>
-    <h1 align = "center" id = "intro">INTRODUCTION TO FTT</h1>
-    <h1>______________________________________________________________________________________________</h1>
-    <h2 align = "center" id = "instructions">What is FTT</h2>
-    <p align = "center" id = "instructions">blahblahblah</p>
+    <button id = "intro_option" class = "option">Intro</button>
+    <button id = "howtoplay_option" class = "option">How To Play</button>
+    <button id = "start_option" class = "option">Start</button>
+    <button id = "creators_option" class = "option">Creators</button>
+    <h1 align="center">______________________________________________________________________________________________</h1>
+    <h1 align = "center" class = "intro">INTRODUCTION TO FTT</h1>
+    <h1 align = "center">______________________________________________________________________________________________</h1>
+    <h2 align = "center" class="intro">What is FTT?</h2>
+    <p align = "center" id = "instructions">FTT is a computer CTF (capture the flag) targeted towards windows. <br>It stands for <span>F</span>ind <span>T</span>he <span>T</span>hing because we aren't feeling very creative.<br><br>We would recommend you have knowledge in batch files <br>and a basic knowledge in computers. <br><br> Particpating is completely free and anonymous.<br> It is targeted towards middle schoolers from grades 5 to 8.</p>
 
   </body>
 
