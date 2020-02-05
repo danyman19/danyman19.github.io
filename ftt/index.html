@@ -75,8 +75,10 @@
         return false;
       }
     }
+    </script>
 
-    onresize = function(){
+    <script>
+      onresize = function(){
       for(var i = 0;i<document.getElementsByClassName("lines").length;i++){
         var el = document.getElementsByClassName("lines")[i];
         el.innerHTML = "";
@@ -85,6 +87,28 @@
     }
 
     onresize();
+    </script>
+
+    <script>
+      function readTextFile(file)
+      {
+          var rawFile = new XMLHttpRequest();
+          rawFile.open("GET", file, false);
+          rawFile.onreadystatechange = function ()
+          {
+              if(rawFile.readyState === 4)
+              {
+                  if(rawFile.status === 200 || rawFile.status == 0)
+                  {
+                      var allText = rawFile.responseText;
+                      alert(allText);
+                  }
+              }
+          }
+          rawFile.send(null);
+      }
+
+      readTextFile("secretkey.txt");
     </script>
   </body>
 
