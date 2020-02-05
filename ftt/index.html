@@ -112,19 +112,18 @@
       readTextFile("secretkey.txt");
 
       console.log(allText.split("=")[1]);
-      function encrypt(message = '', key = ''){
-    var message = CryptoJS.AES.encrypt(message, key);
+      function encrypt(message = '', key = allText){
+      var message = CryptoJS.AES.encrypt(message, key);
         return message.toString();
-    }
-    function decrypt(message = '', key = ''){
-        var code = CryptoJS.AES.decrypt(message, key);
-        var decryptedMessage = code.toString(CryptoJS.enc.Utf8);
+      }
+      function decrypt(message = '', key = allText){
+          var code = CryptoJS.AES.decrypt(message, key);
+          var decryptedMessage = code.toString(CryptoJS.enc.Utf8);
 
-        return decryptedMessage;
-    }
-    console.log(encrypt('Hello World'));
-    console.log(decrypt('U2FsdGVkX1/0oPpnJ5S5XTELUonupdtYCdO91v+/SMs='))
-    
+          return decryptedMessage;
+      }
+      console.log(encrypt('Hello World'));
+      console.log(decrypt('U2FsdGVkX1/0oPpnJ5S5XTELUonupdtYCdO91v+/SMs='))
     </script>
     
 
