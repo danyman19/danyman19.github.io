@@ -25,26 +25,7 @@
     <h1 align = "center" class="lines">JS is disabled. I wonder what you can do >:)</h1>
     <h2 align = "center" class = "">We have a CTF called ftt. <br><br>If you would like to check that out click <a href="ftt/index.html">this</a></h2>
 
-    <!--This is for my friend who loves to copy code. TAKE THIS!-->
-    <!--If you see this then you are a ftt{tru3_br0ws3r_h4x3r}-->
     <script>
-    document.addEventListener('contextmenu', event => event.preventDefault());
-
-      document.onkeydown = function(e) {
-        if(event.keyCode == 123) {
-          return false;
-        }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
-          return false;
-        }
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
-          return false;
-        }
-        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
-          return false;
-        }
-      }
-
       onresize = function(){
       for(var i = 0;i<document.getElementsByClassName("lines").length;i++){
         var el = document.getElementsByClassName("lines")[i];
@@ -52,7 +33,6 @@
         for(var j = 0;j<window.innerWidth/20;j++) el.innerHTML += "_";
       }
     }
-
     onresize();
     </script>
   </body>
