@@ -91,6 +91,7 @@
     </script>
 
     <script>
+      var allText = "";
       function readTextFile(file)
       {
           var rawFile = new XMLHttpRequest();
@@ -101,8 +102,7 @@
               {
                   if(rawFile.status === 200 || rawFile.status == 0)
                   {
-                      var allText = rawFile.responseText;
-                      return allText;
+                      allText = rawFile.responseText;
                   }
               }
           }
