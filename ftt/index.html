@@ -58,9 +58,9 @@
     <button id = "start_option" class = "option">Start</button>
     <button id = "creators_option" class = "option">Creators</button>
     <br><br>
-    <h1 align="center" class="lines">JS is disabled. I wonder what you can do >:)</h1>
+    <h1 align="center" class="lines">Please enable JS.</h1>
     <h1 align = "center" class = "intro">INTRODUCTION TO FTT</h1>
-    <h1 align = "center" class="lines">JS is disabled. I wonder what you can do >:)</h1>
+    <h1 align = "center" class="lines">Please enable JS.</h1>
     <h2 align = "center" class="intro">What is FTT?</h2>
     <p align = "center" id = "instructions">FTT is a computer CTF (capture the flag) which means you try to find <br> "flags" using your computer skills.<br><br>It stands for <span>F</span>ind <span>T</span>he <span>T</span>hing because we aren't feeling very creative.<br><br>We would recommend you have knowledge in batch files <br>and a basic knowledge in computers. <br><br> Particpating is completely free and anonymous.<br> It is targeted towards middle schoolers from grades 5 to 8 with windows computers.</p>
 
@@ -79,6 +79,9 @@
         return false;
       }
       if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+        return false;
+      }
+      if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
         return false;
       }
       if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
