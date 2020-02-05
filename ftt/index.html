@@ -20,12 +20,27 @@
       }
 
       .option {
-        background-color: #CC00FE;
+        background-color: #0070FE;
         border: none;
         color: #00C0FE;
         padding: 15px 50px;
         text-align: center;
         font-size: 16px;
+        position:fixed;
+        width:15%;
+      }
+      #intro_option{
+        left:10%;
+      }
+      #howtoplay_option{
+        left:30%;
+        width:20%;
+      }
+      #start_option{
+        left:53%;
+      }
+      #creators_option{
+        left:70%;
       }
 
       span {
@@ -40,16 +55,19 @@
     <button id = "howtoplay_option" class = "option">How To Play</button>
     <button id = "start_option" class = "option">Start</button>
     <button id = "creators_option" class = "option">Creators</button>
-    <h1 align="center">______________________________________________________________________________________________</h1>
+    <br><br>
+    <h1 align="center" class="lines">placeholder</h1>
     <h1 align = "center" class = "intro">INTRODUCTION TO FTT</h1>
-    <h1 align = "center">______________________________________________________________________________________________</h1>
+    <h1 align = "center" class="lines">placholder</h1>
     <h2 align = "center" class="intro">What is FTT?</h2>
     <p align = "center" id = "instructions">FTT is a computer CTF (capture the flag) targeted towards windows. <br>It stands for <span>F</span>ind <span>T</span>he <span>T</span>hing because we aren't feeling very creative.<br><br>We would recommend you have knowledge in batch files <br>and a basic knowledge in computers. <br><br> Particpating is completely free and anonymous.<br> It is targeted towards middle schoolers from grades 5 to 8.</p>
+
+
+
 
     <!--This is for my friend who loves to copy code. TAKE THIS!-->
     <script>
     document.addEventListener('contextmenu', event => event.preventDefault());
-
       document.onkeydown = function(e) {
       if(event.keyCode == 123) {
         return false;
@@ -63,7 +81,17 @@
       if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
         return false;
       }
+    }
+
+    onresize = function(){
+      for(var i = 0;i<document.getElementsByClassName("lines").length;i++){
+        var el = document.getElementsByClassName("lines")[i];
+        el.innerHTML = "";
+        for(var j = 0;j<window.innerWidth/20;j++) el.innerHTML += "_";
       }
+    }
+
+    onresize();
     </script>
   </body>
 
