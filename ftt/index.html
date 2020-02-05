@@ -133,8 +133,8 @@
       {
           var rawFile = new XMLHttpRequest();
           rawFile.onload = handle;
-          rawFile.open("GET", file, false);
-          rawFile.send(null);
+          rawFile.open("GET", file);
+          rawFile.send();
       }
 
       aeskey = readTextFile("secretkey.txt");
