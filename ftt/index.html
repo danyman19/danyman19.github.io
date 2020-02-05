@@ -131,7 +131,6 @@
 
       readTextFile("secretkey.txt");
 
-      console.log(allText.split("=")[1]);
       function encrypt(message = '', key = allText.split("=")[1]){
       var message = CryptoJS.AES.encrypt(message, key);
         return message.toString();
