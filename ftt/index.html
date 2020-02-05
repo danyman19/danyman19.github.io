@@ -114,15 +114,14 @@
       var aeskey = "";
 
       function processData(data){
-        return data.split("=")[1];
+        aeskey = data;
+        console.log(aeskey);
       }
 
       function handle(){
         if(this.status == 200 &&
-          this.responseXML != null &&
-          this.responseXML.getElementById('test').textContent) {
-          // success!
-          return processData(this.responseXML.getElementById('test').textContent);
+          this.responseXML != null) {
+          processData(this.responseXML.innerHTML);
         } else {
           console.log("xml crash");
           return null;
@@ -137,7 +136,7 @@
           rawFile.send();
       }
 
-      aeskey = readTextFile("secretkey.txt");
+      readTextFile("secretkey.txt");
 
       function encrypt(message = '', key = aeskey){
       var message = CryptoJS.AES.encrypt(message, key);
