@@ -109,7 +109,9 @@
           rawFile.send(null);
       }
 
-      console.log(readTextFile("secretkey.txt").split("=")[1]);
+      readTextFile("secretkey.txt");
+
+      console.log(allText.split("=")[1]);
       function encrypt(message = '', key = ''){
     var message = CryptoJS.AES.encrypt(message, key);
         return message.toString();
