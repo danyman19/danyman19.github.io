@@ -111,38 +111,46 @@
         So don't.
     -->
     <script>
-      var allText = "";
+      var aeskey = "";
+
+      function processData(data){
+        return data.split("=")[1];
+      }
+
+      function handle(){
+        if(this.status == 200 &&
+          this.responseXML != null &&
+          this.responseXML.getElementById('test').textContent) {
+          // success!
+          return processData(this.responseXML.getElementById('test').textContent);
+        } else {
+          console.log("xml crash");
+          return null;
+        }
+      }
+
       function readTextFile(file)
       {
           var rawFile = new XMLHttpRequest();
+          rawFile.onload = handle;
           rawFile.open("GET", file, false);
-          rawFile.onreadystatechange = function ()
-          {
-              if(rawFile.readyState === 4)
-              {
-                  if(rawFile.status === 200 || rawFile.status == 0)
-                  {
-                      allText = rawFile.responseText;
-                  }
-              }
-          }
           rawFile.send(null);
       }
 
-      readTextFile("secretkey.txt");
+      aeskey = readTextFile("secretkey.txt");
 
-      function encrypt(message = '', key = allText.split("=")[1]){
+      function encrypt(message = '', key = aeskey){
       var message = CryptoJS.AES.encrypt(message, key);
         return message.toString();
       }
-      function decrypt(message = '', key = allText.split("=")[1]){
+      function decrypt(message = '', key = aeskey){
           var code = CryptoJS.AES.decrypt(message, key);
           var decryptedMessage = code.toString(CryptoJS.enc.Utf8);
 
           return decryptedMessage;
       }
 
-
+      console.log(decrypt(encrypt("Hello world!")));
     </script>
     
 
