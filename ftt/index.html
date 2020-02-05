@@ -23,7 +23,7 @@
         background-color: #0070FE;
         border: none;
         color: #FFFFFF;
-        padding: 2%;
+        padding: 3%;
         padding-bottom:20px;
         padding-top:20px;
 	      font-family: 'Orbitron', sans-serif;
@@ -32,6 +32,7 @@
         position:fixed;
         width:15%;
       }
+
       #intro_option{
         left:10%;
       }
@@ -44,6 +45,7 @@
       }
       #creators_option{
         left:70%;
+        width:20%;
       }
 
       span {
@@ -54,10 +56,10 @@
   </head>
 
   <body>
-    <button id = "intro_option" class = "option">Intro</button>
-    <button id = "howtoplay_option" class = "option">How To Play</button>
-    <button id = "start_option" class = "option">Start</button>
-    <button id = "creators_option" class = "option">Creators</button>
+    <button id = "intro_option" class = "option"><span>Intro</span></button>
+    <button id = "howtoplay_option" class = "option"><span>How To Play</span></button>
+    <button id = "start_option" class = "option"><span>Start</span></button>
+    <button id = "creators_option" class = "option"><span>Creators</span></button>
     <br><br>
     <h1 align="center" class="lines">Please enable JS.</h1>
     <h1 align = "center" class = "intro">INTRODUCTION TO FTT</h1>
@@ -69,27 +71,45 @@
     <!--This is for my friend who loves to copy code. TAKE THIS!-->
     <!--If you see this then you are a ftt{tru3_br0ws3r_h4x3r}-->
     <script>
-    document.addEventListener('contextmenu', event => event.preventDefault());
-      document.onkeydown = function(e) {
-      if(event.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
-        alert("NO COPYING MY CODE!");
-        return false;
+      document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function(e) {
+        if(event.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+          alert("NO COPYING MY CODE!");
+          return false;
+        }
       }
-    }
     </script>
 
     <script>
       onresize = function(){
-      for(var i = 0;i<document.getElementsByClassName("lines").length;i++){
-        var el = document.getElementsByClassName("lines")[i];
-        el.innerHTML = "";
-        for(var j = 0;j<window.innerWidth/20;j++) el.innerHTML += "_";
-      }
-    }
+        for(var i = 0;i<document.getElementsByClassName("lines").length;i++){
+          var el = document.getElementsByClassName("lines")[i];
+          el.innerHTML = "";
+          for(var j = 0;j<window.innerWidth/20;j++) el.innerHTML += "_";
+        }
 
-    onresize();
+        //Only runs if inspect window is too big and left side is too small
+        for(var i = 0;i<document.getElementsByClassName("option").length;i++){
+          var el = document.getElementsByClassName("option")[i];
+          el.style.display = window.innerWidth<500?"none":"block";
+        }
+      }
+
+      onresize();
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+
+    <!--We have an honesty policy out here
+        It is to not reverse the ftts 
+        with our public key.
+
+        Please don't it defeates the purpose
+        of doing the ctfs.
+
+        You don't learn anything and it isn't fun.
+
+        So don't.
+    -->
     <script>
       var allText = "";
       function readTextFile(file)
@@ -112,18 +132,18 @@
       readTextFile("secretkey.txt");
 
       console.log(allText.split("=")[1]);
-      function encrypt(message = '', key = allText){
+      function encrypt(message = '', key = allText.split("=")[1]){
       var message = CryptoJS.AES.encrypt(message, key);
         return message.toString();
       }
-      function decrypt(message = '', key = allText){
+      function decrypt(message = '', key = allText.split("=")[1]){
           var code = CryptoJS.AES.decrypt(message, key);
           var decryptedMessage = code.toString(CryptoJS.enc.Utf8);
 
           return decryptedMessage;
       }
-      console.log(encrypt('Hello World'));
-      console.log(decrypt('U2FsdGVkX1/0oPpnJ5S5XTELUonupdtYCdO91v+/SMs='))
+
+
     </script>
     
 
