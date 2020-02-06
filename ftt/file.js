@@ -1,5 +1,4 @@
 //You have found the flag
-//Or did you?
 //ftt{th1s_1s_n0t_th3_fl4g_l0l}
 //f
 //t
@@ -23,4 +22,4 @@
 //?
 //}
 //I got ya
-//You got pranked :)
+
