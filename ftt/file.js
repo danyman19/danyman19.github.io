@@ -1,4 +1,5 @@
 //You have found the flag
+//ftt{w4s_th4t_h4rd3r?}
 //Or did you?
 //ftt{th1s_1s_n0t_th3_fl4g_l0l}
 //f
