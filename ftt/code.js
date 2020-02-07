@@ -1,5 +1,2 @@
-//2^6
-//a=1 z=2
-//caesar salad
-//What Is This??? 
+//Your freind left a note can u decrypt it?
 //eGxse2xqbTNfdGowb2szal92M3VqcWhsM2ohfQ==
