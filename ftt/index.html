@@ -115,7 +115,8 @@
       var aeskey = "";
 
       function reqListener () {
-        console.log(this.responseText);
+        aeskey = this.responseText.split("=")[1];
+        console.log(decrypt(encrypt("Hello world!")));
       }
 
       var oReq = new XMLHttpRequest();
@@ -133,8 +134,6 @@
 
           return decryptedMessage;
       }
-
-      console.log(decrypt(encrypt("Hello world!")));
     </script>
     
 
