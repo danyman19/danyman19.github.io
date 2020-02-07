@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>2020_FTT</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+
+      body {
+        background-image: url('background.jpg');
+      }
+
+      .intro {
+        font-family: 'Orbitron', sans-serif;
+      }
+
+      #instructions {
+        font-family: 'Orbitron', sans-serif;
+        font-size:20px;
+      }
+
+      .option {
+        background-color: #0070FE;
+        border: none;
+        color: #FFFFFF;
+        padding: 3%;
+        padding-bottom:20px;
+        padding-top:20px;
+	      font-family: 'Orbitron', sans-serif;
+        text-align: center;
+        font-size: 16px;
+        position:fixed;
+        width:15%;
+      }
+
+      #intro_option{
+        left:10%;
+      }
+      #howtoplay_option{
+        left:30%;
+        width:20%;
+      }
+      #start_option{
+        left:53%;
+      }
+      #creators_option{
+        left:70%;
+        width:20%;
+      }
+
+      span {
+        font-weight:bold;
+      }
+
+    </style>
+    <script src="file.js"></script>
+  </head>
+
+  <body>
+    <button id = "intro_option" class = "option"><span>Intro</span></button>
+    <button id = "howtoplay_option" class = "option"><span>How To Play</span></button>
+    <button id = "start_option" class = "option"><span>Challenges</span></button>
+    <button id = "creators_option" class = "option"><span>Creators</span></button>
+    <br><br>
+    <h1 align="center" class="lines">Please enable JS.</h1>
+    <h1 align = "center" class = "intro">INTRODUCTION TO FTT</h1>
+    <h1 align = "center" class="lines">Please enable JS.</h1>
+    <h2 align = "center" class="intro">What is FTT?</h2>
+    <p align = "center" id = "instructions">FTT is a computer CTF (capture the flag) which means you try to find <br> "flags" using your computer skills.<br><br>It stands for <span>F</span>ind <span>T</span>he <span>T</span>hing because we aren't feeling very creative.<br><br>We would recommend you have knowledge in batch files <br>and a basic knowledge in computers. <br><br> Participating is completely free and anonymous.<br> It is targeted towards middle schoolers from grades 5 to 8 with windows computers.</p>
+
+
+    <!--This is for my friend who loves to copy code. TAKE THIS!-->
+    <!--If you see this then you are a ftt{tru3_br0ws3r_h4x3r}-->
+    <script>
+      document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function(e) {
+        if(event.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+          alert("NO COPYING MY CODE!");
+          return false;
+        }
+      }
+    </script>
+
+    <script>
+      onresize = function(){
+        for(var i = 0;i<document.getElementsByClassName("lines").length;i++){
+          var el = document.getElementsByClassName("lines")[i];
+          el.innerHTML = "";
+          for(var j = 0;j<window.innerWidth/20;j++) el.innerHTML += "_";
+        }
+
+        //Only runs if inspect window is too big and left side is too small
+        for(var i = 0;i<document.getElementsByClassName("option").length;i++){
+          var el = document.getElementsByClassName("option")[i];
+          el.style.display = window.innerWidth<500?"none":"block";
+        }
+      }
+
+      onresize();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+
+    <!--We have an honesty policy out here
+        It is to not reverse the ftts 
+        with our public key.
+
+        Please don't it defeates the purpose
+        of doing the ctfs.
+
+        You don't learn anything and it isn't fun.
+
+        So don't.
+    -->
+    <script>
+      var aeskey = "";
+
+      function reqListener () {
+        aeskey = this.responseText.split("=")[1];
+      }
+
+      var oReq = new XMLHttpRequest();
+      oReq.addEventListener("load", reqListener);
+      oReq.open("GET", "secretkey.txt");
+      oReq.send();
+
+      function encrypt(message = '', key = aeskey){
+      var message = CryptoJS.AES.encrypt(message, key);
+        return message.toString();
+      }
+      function decrypt(message = '', key = aeskey){
+          var code = CryptoJS.AES.decrypt(message, key);
+          var decryptedMessage = code.toString(CryptoJS.enc.Utf8);
+
+          return decryptedMessage;
+      }
+    </script>
+    
+
+  </body>
+
+</html>
