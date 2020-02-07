@@ -114,30 +114,26 @@
     <script>
       var aeskey = "";
 
-      function processData(data){
-        aeskey = data;
-        console.log(aeskey);
+      function doGET(url) {
+          return fetch(url).then(response => {
+              if (!response.ok) {
+                  throw new Error("HTTP error " + response.status); // Rejects the promise
+              }
+          });
       }
 
-      function handle(){
-        if(this.status == 200 &&
-          this.responseXML != null) {
-          processData(this.responseXML.innerHTML);
-        } else {
-          console.log("xml crash");
-          return null;
-        }
+      function handleFileData(fileData) {
+          if (!fileData) {
+              console.log("XML ERROR!");
+              return;
+          }
+          // Use the file data
+          aeskey = fileData;
+          console.log(aeskey);
       }
 
-      function readTextFile(file)
-      {
-          var rawFile = new XMLHttpRequest();
-          rawFile.onload = handle;
-          rawFile.open("GET", file);
-          rawFile.send();
-      }
-
-      readTextFile("secretkey.txt");
+      // Do the request
+      doGET("secretkey.txt", handleFileData);
 
       function encrypt(message = '', key = aeskey){
       var message = CryptoJS.AES.encrypt(message, key);
