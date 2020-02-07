@@ -116,6 +116,7 @@
 
       function doGET(url) {
           return fetch(url).then(response => {
+              console.log("in fetch");
               if (!response.ok) {
                   throw new Error("HTTP error " + response.status); // Rejects the promise
               }
