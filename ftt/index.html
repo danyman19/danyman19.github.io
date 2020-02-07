@@ -114,28 +114,14 @@
     <script>
       var aeskey = "";
 
-      function doGET(url) {
-          return fetch(url).then(response => {
-              console.log("in fetch");
-              if (!response.ok) {
-                  throw new Error("HTTP error " + response.status); // Rejects the promise
-              }
-          });
+      function reqListener () {
+        console.log(this.responseText);
       }
 
-      function handleFileData(fileData) {
-          console.log("handling data");
-          if (!fileData) {
-              console.log("XML ERROR!");
-              return;
-          }
-          // Use the file data
-          aeskey = fileData;
-          console.log(aeskey);
-      }
-
-      console.log("epic -> "+aeskey);
-      doGET("secretkey.txt", handleFileData);
+      var oReq = new XMLHttpRequest();
+      oReq.addEventListener("load", reqListener);
+      oReq.open("GET", "secretkey.txt");
+      oReq.send();
 
       function encrypt(message = '', key = aeskey){
       var message = CryptoJS.AES.encrypt(message, key);
