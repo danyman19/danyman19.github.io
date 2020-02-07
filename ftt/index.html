@@ -124,6 +124,7 @@
       }
 
       function handleFileData(fileData) {
+          console.log("handling data");
           if (!fileData) {
               console.log("XML ERROR!");
               return;
@@ -133,7 +134,7 @@
           console.log(aeskey);
       }
 
-      // Do the request
+      console.log("epic -> "+aeskey);
       doGET("secretkey.txt", handleFileData);
 
       function encrypt(message = '', key = aeskey){
