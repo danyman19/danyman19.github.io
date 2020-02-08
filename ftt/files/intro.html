@@ -26,12 +26,11 @@
         padding: 3%;
         padding-bottom:20px;
         padding-top:20px;
-	      font-family: 'Orbitron', sans-serif;
+        font-family: 'Orbitron', sans-serif;
         text-align: center;
         font-size: 16px;
         position:fixed;
         width:15%;
-        border-radius: 5px;
       }
 
       #intro_option{
@@ -41,7 +40,7 @@
         left:30%;
         width:20%;
       }
-      #challenges_option{
+      #start_option{
         left:53%;
       }
       #creators_option{
@@ -54,14 +53,21 @@
       }
 
     </style>
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <script src="file.js"></script>
   </head>
 
   <body>
-    <a href="intro.html"><button id = "intro_option" class = "option"><span>Intro</span></button></a>
-    <a href="howtoplay.html"><button id = "howtoplay_option" class = "option"><span>How To Play</span></button></a>
-    <a href="challenges.html"><button id = "challenges_option" class = "option"><span>Challenges</span></button></a>
-    <a href="creators.html"><button id = "creators_option" class = "option"><span>Creators</span></button></a>
+    <button id = "intro_option" class = "option"><span>Intro</span></button>
+    <button id = "howtoplay_option" class = "option"><span>How To Play</span></button>
+    <button id = "start_option" class = "option"><span>Challenges</span></button>
+    <button id = "creators_option" class = "option"><span>Creators</span></button>
     <br><br>
     <h1 align="center" class="lines">Please enable JS.</h1>
     <h1 align = "center" class = "intro">INTRODUCTION TO FTT</h1>
@@ -102,7 +108,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
     <!--We have an honesty policy out here
-        It is to not reverse the ftts
+        It is to not reverse the ftts 
         with our public key.
 
         Please don't it defeates the purpose
@@ -135,7 +141,7 @@
           return decryptedMessage;
       }
     </script>
-
+    
 
   </body>
 

@@ -10,13 +10,27 @@
 
       }
 
-      .challenges {
+      .challengediv {
         font-family: 'Orbitron', sans-serif;
+        background: white;
+        width:30%;
+        height:180px;
+        display: inline-block;
+        text-align:center;
+        position:absolute;
+        left:35%;
       }
 
       .input{
         font-family: 'Orbitron', sans-serif;
+        text-align:center;
 
+      }
+
+      .header{
+        font-family: 'Orbitron', sans-serif;
+        text-align:center;
+        font-weight:bold;
       }
 
       #flag {
@@ -63,6 +77,13 @@
       }
 
     </style>
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
   </head>
 
   <body>
@@ -72,13 +93,10 @@
     <a href="creators.html"><button id = "creators_option" class = "option"><span>Creators</span></button></a>
     <br><br>
     <h1 align="center" class="lines">Please enable JS.</h1>
-    <h1 align = "center" class = "challenges">CHALLENGES</h1>
+    <h1 class = "header">CHALLENGES</h1>
     <h1 align = "center" class="lines">Please enable JS.</h1>
-    <p align = "center" class= "challenges" >Place the flag you got from the Intro in the input below to start</p>
-    <input type="text" class = "input" id="flag" name="flag" style="margin:0px auto; display:block;">
-    <br>
-    <button class = "input" id="submit" style="margin:0px auto; display:block;">Submit</button>
-
+    <div id="challenges">
+    </div>
 
     <!--This is for my friend who loves to copy code. TAKE THIS!-->
     <script>
@@ -109,7 +127,30 @@
       onresize();
     </script>
 
+     <script>
+       class Challenge{
+        constructor(name,description){
+          this.name = name;
+          this.description = description;
+        }
 
+        draw(){
+          var container = document.createElement("div");
+          container.className = "challengediv";
+          container.innerHTML = `
+            <h3 class= "header">`+this.name+`</h3>
+            <p class= "">`+this.description+`</p>
+            <input type="text" class = "input" style="margin:0px auto; display:block;" placeholder="ftt{..}">
+            <br>
+            <button class = "input" id="submit" style="margin:0px auto; display:block;">Submit</button>
+          `;
+
+          document.getElementById("challenges").appendChild(container);
+        }
+       }
+       var test = new Challenge("Julius (Cryptography)","Julius left a <a href='txt_files/Julius.txt' target='_blank'");
+      test.draw();
+     </script>
   </body>
 
 </html>
