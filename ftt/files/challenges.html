@@ -2,82 +2,8 @@
 <html>
   <head>
     <title>2020_FTT</title>
-    <style>
-      @import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
-
-      body {
-        background-image: url('background.jpg');
-
-      }
-
-      .challengediv {
-        font-family: 'Orbitron', sans-serif;
-        background: white;
-        width:30%;
-        height:180px;
-        display: inline-block;
-        text-align:center;
-        position:absolute;
-        left:35%;
-      }
-
-      .input{
-        font-family: 'Orbitron', sans-serif;
-        text-align:center;
-
-      }
-
-      .header{
-        font-family: 'Orbitron', sans-serif;
-        text-align:center;
-        font-weight:bold;
-      }
-
-      #flag {
-        border: none;
-      }
-
-      #submit {
-        border: none;
-        border-radius: 2px;
-      }
-
-      .option {
-        background-color: #0070FE;
-        border: none;
-        color: #FFFFFF;
-        padding: 3%;
-        padding-bottom:20px;
-        padding-top:20px;
-	      font-family: 'Orbitron', sans-serif;
-        text-align: center;
-        font-size: 16px;
-        position:fixed;
-        width:15%;
-        border-radius: 5px;
-      }
-
-      #intro_option{
-        left:10%;
-      }
-      #howtoplay_option{
-        left:30%;
-        width:20%;
-      }
-      #challenges_option{
-        left:53%;
-      }
-      #creators_option{
-        left:70%;
-        width:20%;
-      }
-
-      span {
-        font-weight:bold;
-      }
-
-    </style>
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen"/>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
   </head>
 
   <body>
@@ -86,22 +12,10 @@
     <a href="challenges.html"><button id = "challenges_option" class = "option"><span>Challenges</span></button></a>
     <a href="creators.html"><button id = "creators_option" class = "option"><span>Creators</span></button></a>
     <br><br>
-    <h1 align="center" class="lines">Please enable JS.</h1>
+    <h1 class="lines">Please enable JS.</h1>
     <h1 class = "header">CHALLENGES</h1>
-    <h1 align = "center" class="lines">Please enable JS.</h1>
-    <div id="challenges">
-    </div>
-
-    <!--This is for my friend who loves to copy code. TAKE THIS!-->
-    <script>
-      document.addEventListener('contextmenu', event => event.preventDefault());
-        document.onkeydown = function(e) {
-        if(event.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) || (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) || (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
-          alert("NO COPYING MY CODE!");
-          return false;
-        }
-      }
-    </script>
+    <h1 class="lines">Please enable JS.</h1>
+    <div id="challenges"></div>
 
     <script>
       onresize = function(){
@@ -120,31 +34,66 @@
 
       onresize();
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
-     <script>
-       class Challenge{
-        constructor(name,description){
-          this.name = name;
-          this.description = description;
-        }
+    <!--We have an honesty policy out here
+        It is to not reverse the ftts 
+        with our public key.
 
-        draw(){
-          var container = document.createElement("div");
-          container.className = "challengediv";
-          container.innerHTML = `
-            <h3 class= "header">`+this.name+`</h3>
-            <p class= "">`+this.description+`</p>
-            <input type="text" class = "input" style="margin:0px auto; display:block;" placeholder="ftt{..}">
-            <br>
-            <button class = "input" id="submit" style="margin:0px auto; display:block;">Submit</button>
-          `;
+        Please don't it defeates the purpose
+        of doing the ctfs.
 
-          document.getElementById("challenges").appendChild(container);
-        }
+        You don't learn anything and it isn't fun.
+
+        So don't.
+    -->
+    <script>
+      var aeskey = "";
+
+      function reqListener () {
+        aeskey = this.responseText.split("=")[1];
+      }
+
+      var oReq = new XMLHttpRequest();
+      oReq.addEventListener("load", reqListener);
+      oReq.open("GET", "secretkey.txt");
+      oReq.send();
+
+      function encrypt(message = '', key = aeskey){
+      var message = CryptoJS.AES.encrypt(message, key);
+        return message.toString();
+      }
+      function decrypt(message = '', key = aeskey){
+          var code = CryptoJS.AES.decrypt(message, key);
+          var decryptedMessage = code.toString(CryptoJS.enc.Utf8);
+
+          return decryptedMessage;
+      }
+
+      class Challenge{
+       constructor(name,description){
+         this.name = name;
+         this.description = description;
        }
-       var test = new Challenge("Julius (Cryptography)","Julius left a <a href='txt_files/Julius.txt' target='_blank'");
-      test.draw();
-     </script>
+
+      draw(){
+        var container = document.createElement("div");
+        container.className = "challengediv";
+        container.innerHTML = `
+           <h3 class= "header">`+this.name+`</h3>
+            <p>`+this.description+`</p>
+          <input type="text" class = "center" style="margin:0px auto; display:block;" placeholder="ftt{..}">
+           <br>
+          <button class = "center" id="submit" style="margin:0px auto; display:block;">Submit</button>
+         `;
+         document.getElementById("challenges").appendChild(container);
+       }
+      }
+      var challenges = [new Challenge("Julius (Cryptography)","Julius left a <a href='txt_files/Julius.txt' target='_blank'>message</a>")];
+      for(var i in challenges){
+        challenges[i].draw();
+      }
+    </script>
   </body>
 
 </html>

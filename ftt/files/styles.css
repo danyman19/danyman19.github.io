@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+
+body {
+  background-image: url('background.jpg');
+}
+
+span {
+  font-weight:bold;
+}
+
+:any-link {
+  color: green;
+}
+
+.reminder {
+  color: red;
+}
+
+.challengediv {
+  font-family: 'Orbitron', sans-serif;
+  background: white;
+  width:30%;
+  height:180px;
+  display: inline-block;
+  text-align:center;
+  position:absolute;
+  left:35%;
+}
+
+.center{
+  font-family: 'Orbitron', sans-serif;
+  text-align:center;
+}
+
+.header{
+  font-family: 'Orbitron', sans-serif;
+  text-align:center;
+  font-weight:bold;
+}
+
+.lines{
+  text-align:center;
+}
+
+.option {
+  background-color: #0070FE;
+  border: none;
+  color: #FFFFFF;
+  padding: 3%;
+  padding-bottom:20px;
+  padding-top:20px;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  font-size: 16px;
+  position:fixed;
+  width:15%;
+  border-radius: 5px;
+}
+
+#instructions {
+  font-family: 'Orbitron', sans-serif;
+  font-size:20px;
+  text-align:center;
+}
+
+#intro_option{
+  left:10%;
+}
+#howtoplay_option{
+  left:30%;
+  width:20%;
+}
+#challenges_option{
+  left:53%;
+}
+#creators_option{
+  left:70%;
+  width:20%;
+}
