@@ -71,27 +71,41 @@
       }
 
       class Challenge{
-       constructor(name,description){
-         this.name = name;
-         this.description = description;
-       }
+        constructor(name,description,solution){
+          this.name = name;
+          this.description = description;
+          this.solution = solution;
+          this.container;
+        }
 
-      draw(){
-        var container = document.createElement("div");
-        container.className = "challengediv";
-        container.innerHTML = `
-           <h3 class= "header">`+this.name+`</h3>
+        draw(){
+          this.container = document.createElement("div");
+          this.container.className = "challengediv";
+          this.container.innerHTML = `
+            <h3 class= "header">`+this.name+`</h3>
             <p>`+this.description+`</p>
-          <input type="text" class = "center" style="margin:0px auto; display:block;" placeholder="ftt{..}">
-           <br>
-          <button class = "center" id="submit" style="margin:0px auto; display:block;">Submit</button>
-         `;
-         document.getElementById("challenges").appendChild(container);
-       }
+            <input type="text" class = "center" style="margin:0px auto; display:block;" placeholder="ftt{..}">
+            <br>
+            <button class = "center" style="margin:0px auto; display:block;">Submit</button>
+          `;
+          document.getElementById("challenges").appendChild(this.container);
+        }
+        addListener(){
+          this.container.children[4].addEventListener("click",function(){
+            if(encrypt(this.container.children[2].value)==this.solution){
+              alert("You did it!");
+            }
+          });
+        }
+
+        doall(){
+          this.draw();
+          this.addListener();
+        }
       }
-      var challenges = [new Challenge("Julius (Cryptography)","Julius left a <a href='txt_files/Julius.txt' target='_blank'>message</a>")];
+      var challenges = [new Challenge("Julius (Cryptography)","Julius left a <a href='txt_files/Julius.txt' target='_blank'>message</a>","U2FsdGVkX1+PseeS0mUJjVHZeygWD8NiQb4s3qQMMkCu9q4d4JwWXpd1Ac7uQgEm")];
       for(var i in challenges){
-        challenges[i].draw();
+        challenges[i].doall();
       }
     </script>
   </body>
