@@ -75,10 +75,6 @@
           this.name = name;
           this.description = description;
           this.solution = solution;
-          this.container;
-        }
-
-        draw(){
           this.container = document.createElement("div");
           this.container.className = "challengediv";
           this.container.innerHTML = `
@@ -91,15 +87,18 @@
           document.getElementById("challenges").appendChild(this.container);
         }
         addListener(){
-          this.container.children[4].addEventListener("click",function(){
-            if(encrypt(this.container.children[2].value)==this.solution){
-              alert("You did it!");
+          var container = this.container;
+          
+          container.children[4].addEventListener("click",buttonPress);
+
+          function buttonPress(){
+            if(encrypt(container.children[2].value) == container.solution){
+              alert("NICE!!");
             }
-          });
+          }
         }
 
         doall(){
-          this.draw();
           this.addListener();
         }
       }
