@@ -59,19 +59,28 @@
       oReq.open("GET", "secretkey.txt");
       oReq.send();
 
-      function encrypt(text,key){
-        //32 -> 126
-        var charcodes = [];
-        for (var i = 0; i < text.length; i++) {
-          charcodes.push(text.charCodeAt(i) - 32);
-          if(charcodes[i]<0 || charcodes[i]>94){
-            console.log("invalid input");
-            return "ERROR!!";
-          }
+      function genKey(len){
+        var output = "";
+        for (var i = 0; i < len; i++) {
+          output += String.fromCharCode(Math.floor(Math.random()*95)+32);
         }
-        console.log(charcodes);
+        return output;
       }
-      console.log(encrypt(" !\"#$&'()*abc","hu"));
+
+      function encrypt(text,key){
+        if(key.length<text.length) return "lengtherror";
+        var output = "";
+        for (var i = 0; i < text.length; i++) {
+          var curchar = text.charCodeAt(i) - 32;
+          if(curchar<0 || curchar>94){
+            return "charerror";
+          }
+
+          output += String.fromCharCode((curchar+key.charCodeAt(i))%95 + 32);
+        }
+        return output;
+      }
+      console.log(encrypt("i am your father","no you're not says luke"));
 
       class Challenge{
         constructor(name,description,solution){
@@ -79,6 +88,7 @@
           this.description = description;
           this.solution = solution;
 
+          //Add and display div
           this.container = document.createElement("div");
           this.container.className = "challengediv";
           this.container.innerHTML = `
@@ -89,8 +99,8 @@
             <button class = "center" style="margin:0px auto; display:block;">Submit</button>
           `;
           document.getElementById("challenges").appendChild(this.container);
-        }
-        addListener(){
+
+          //Add event listener
           var container = this.container;
           var solution = this.solution;
           
@@ -102,15 +112,8 @@
             }
           }
         }
-
-        doall(){
-          this.addListener();
-        }
       }
       var challenges = [new Challenge("Julius (Cryptography)","Julius left a <a href='txt_files/Julius.txt' target='_blank'>message</a>","testing123")];
-      for(var i in challenges){
-        challenges[i].doall();
-      }
     </script>
   </body>
 
