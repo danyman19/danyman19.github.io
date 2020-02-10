@@ -37,8 +37,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
     <!--We have an honesty policy out here
-        It is to not reverse the ftts 
-        with our public key.
+        It is to not reverse the ftts
+        through this encryption.
 
         Please don't it defeates the purpose
         of doing the ctfs.
@@ -48,16 +48,17 @@
         So don't.
     -->
     <script>
-      var key = "";
+      //Old:
+      // var key = "";
 
-      function reqListener () {
-        key = this.responseText.split("=")[1];
-      }
+      // function reqListener () {
+      //   key = this.responseText.split("=")[1];
+      // }
 
-      var oReq = new XMLHttpRequest();
-      oReq.addEventListener("load", reqListener);
-      oReq.open("GET", "secretkey.txt");
-      oReq.send();
+      // var oReq = new XMLHttpRequest();
+      // oReq.addEventListener("load", reqListener);
+      // oReq.open("GET", "s3cr3tk3y.txt");
+      // oReq.send();
 
       function genKey(len){
         var output = "";
@@ -80,13 +81,15 @@
         }
         return output;
       }
-      console.log(encrypt("i am your father","no you're not says luke"));
 
       class Challenge{
-        constructor(name,description,solution){
+        constructor(name,description,points,solution,key){
           this.name = name;
           this.description = description;
+          this.points = points;
           this.solution = solution;
+          this.key = key;
+          this.solved = false;
 
           //Add and display div
           this.container = document.createElement("div");
@@ -103,17 +106,18 @@
           //Add event listener
           var container = this.container;
           var solution = this.solution;
+          var key = this.key;
           
           container.children[4].addEventListener("click",buttonPress);
-
+          
           function buttonPress(){
-            if(/*encrypt(*/container.children[2].value/*,key)*/==solution){
+            if(encrypt(container.children[2].value,key)==solution){
               alert("NICE!!");
             }
           }
         }
       }
-      var challenges = [new Challenge("Julius (Cryptography)","Julius left a <a href='txt_files/Julius.txt' target='_blank'>message</a>","testing123")];
+      var challenges = [new Challenge("Julius (Cryptography)","Julius left a <a href='challenge_files/Julius.txt' target='_blank'>message</a>",10,"U1Qn7*F7B@{<U\\Z~>#Y!w:F7","N{<R3Ur#m-{jAME~*OUjdf%x")];
     </script>
   </body>
 
