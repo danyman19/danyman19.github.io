@@ -48,10 +48,10 @@
         So don't.
     -->
     <script>
-      var aeskey = "";
+      var key = "";
 
       function reqListener () {
-        aeskey = this.responseText.split("=")[1];
+        key = this.responseText.split("=")[1];
       }
 
       var oReq = new XMLHttpRequest();
@@ -59,22 +59,26 @@
       oReq.open("GET", "secretkey.txt");
       oReq.send();
 
-      function encrypt(message = '', key = aeskey){
-      var message = CryptoJS.AES.encrypt(message, key);
-        return message.toString();
+      function encrypt(text,key){
+        //32 -> 126
+        var charcodes = [];
+        for (var i = 0; i < text.length; i++) {
+          charcodes.push(text.charCodeAt(i) - 32);
+          if(charcodes[i]<0 || charcodes[i]>94){
+            console.log("invalid input");
+            return "ERROR!!";
+          }
+        }
+        console.log(charcodes);
       }
-      function decrypt(message = '', key = aeskey){
-          var code = CryptoJS.AES.decrypt(message, key);
-          var decryptedMessage = code.toString(CryptoJS.enc.Utf8);
-
-          return decryptedMessage;
-      }
+      console.log(encrypt(" !\"#$&'()*abc","hu"));
 
       class Challenge{
         constructor(name,description,solution){
           this.name = name;
           this.description = description;
           this.solution = solution;
+
           this.container = document.createElement("div");
           this.container.className = "challengediv";
           this.container.innerHTML = `
@@ -88,11 +92,12 @@
         }
         addListener(){
           var container = this.container;
+          var solution = this.solution;
           
           container.children[4].addEventListener("click",buttonPress);
 
           function buttonPress(){
-            if(encrypt(container.children[2].value) == container.solution){
+            if(/*encrypt(*/container.children[2].value/*,key)*/==solution){
               alert("NICE!!");
             }
           }
@@ -102,7 +107,7 @@
           this.addListener();
         }
       }
-      var challenges = [new Challenge("Julius (Cryptography)","Julius left a <a href='txt_files/Julius.txt' target='_blank'>message</a>","U2FsdGVkX1+PseeS0mUJjVHZeygWD8NiQb4s3qQMMkCu9q4d4JwWXpd1Ac7uQgEm")];
+      var challenges = [new Challenge("Julius (Cryptography)","Julius left a <a href='txt_files/Julius.txt' target='_blank'>message</a>","testing123")];
       for(var i in challenges){
         challenges[i].doall();
       }
