@@ -63,6 +63,13 @@ span {
   text-align:center;
 }
 
+#pointsdiv {
+  background-color:white;
+  width:10%;
+  position:relative;
+  left:45%;
+}
+
 #intro_option{
   left:10%;
 }
