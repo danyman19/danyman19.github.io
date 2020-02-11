@@ -23,7 +23,7 @@ span {
   height:180px;
   display: inline-block;
   text-align:center;
-  position:absolute;
+  position:relative;
   left:35%;
 }
 
@@ -55,6 +55,11 @@ span {
   position:fixed;
   width:15%;
   border-radius: 5px;
+}
+
+#nopetext {
+  display:none;
+  font-size:20px;
 }
 
 #instructions {

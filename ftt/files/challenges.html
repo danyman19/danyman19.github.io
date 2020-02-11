@@ -98,8 +98,9 @@
           //Add and display div
           this.container = document.createElement("div");
           this.container.className = "challengediv";
+
           this.container.innerHTML = `
-            <h3 class= "header">`+this.name+`</h3>
+            <h3 class= "header">`+this.name+` <em>(`+this.points+`)</em></h3>
             <p style="font-size:12px;position:relative;top:-12px;">Unsolved!</p>
             <p>`+this.description+`</p>
             <input type="text" class = "center" style="margin:0px auto; display:block;" placeholder="ftt{..}">
@@ -107,7 +108,10 @@
             <p style="position:relative;top:-30px;"></p>
             <button class = "center" style="margin:0px auto; display:block;position:relative;top:-30px;">Submit</button>
           `;
+
           document.getElementById("challenges").appendChild(this.container);
+          var br = document.createElement("br");
+          document.getElementById("challenges").appendChild(br);
 
           //Add event listener
           var container = this.container;
@@ -136,7 +140,7 @@
           }
         }
       }
-      var challenges = [new Challenge("Julius (Cryptography)","Julius left a <a href='challenge_files/Julius.txt' target='_blank'>message</a>",10,"U1Qn7*F7B@{<U\\Z~>#Y!w:F7","N{<R3Ur#m-{jAME~*OUjdf%x")];
+      var challenges = [new Challenge("Julius (Cryptography)","Julius left a <a href='challenge_files/Julius.txt' target='_blank'>message</a>",10,"U1Qn7*F7B@{<U\\Z~>#Y!w:F7","N{<R3Ur#m-{jAME~*OUjdf%x"), new Challenge("Test","test",0,"","")];
     </script>
   </body>
 </html>
