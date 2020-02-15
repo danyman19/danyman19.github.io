@@ -86,6 +86,14 @@
         return output;
       }
 
+      //Returns a String[]
+      //First output is the encrypted solution
+      //Second output is the key
+      function ezKeyGen(challengesolution){
+        var key = genKey(challengesolution.length);
+        return [encrypt(challengesolution,key),key];
+      }
+
       class Challenge{
         constructor(name,description,points,solution,key){
           this.name = name;
