@@ -53,12 +53,12 @@
     <script>
       onresize = function(){
       for(var i = 0;i<document.getElementsByClassName("lines").length;i++){
-        var el = document.getElementsByClassName("lines")[i];
-        el.innerHTML = "";
-        for(var j = 0;j<window.innerWidth/20;j++) el.innerHTML += "_";
+          var el = document.getElementsByClassName("lines")[i];
+          el.innerHTML = "";  
+          for(var j = 0;j<window.innerWidth/20;j++) el.innerHTML += "_";
+        }
       }
-    }
-    onresize();
+      onresize();
     </script>
   </body>
 

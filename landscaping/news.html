@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hermes Landscaping</title>
+		<link rel="icon" href="favicon.ico">
+		<style>
+			img{
+				height:200px;
+			}
+			h1,h2,p{
+				text-align:center;
+			}
+
+			p:not(.note){
+				text-align:center;
+				border-radius: 10px;
+				border:solid black 2px;
+				padding:10px;
+				position:relative;
+				display:inline-block;
+				height:40px;
+			}
+
+			ul {
+			  list-style-type: none;
+			  margin: 0;
+			  padding: 0;
+			  overflow: hidden;
+			  background-color: #333;
+			}
+
+			li {
+			  float: left;
+			}
+
+			li a {
+			  display: block;
+			  color: white;
+			  text-align: center;
+			  padding: 14px 16px;
+			  text-decoration: none;
+			}
+
+			li a:hover:not(.active) {
+			  background-color: #111;
+			}
+
+			.active {
+			  background-color: #4CAF50;
+			}
+
+			span {
+				font-family:fantasy;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+		  <li><a href="index.html">Home</a></li>
+		  <li><a class="active" href="news.html">News</a></li>
+		  <li><a href="contact.html">Contact</a></li>
+		  <li><a href="jobs.html">Jobs</a></li>
+		  <li style="float:right"><a href="about.html">About</a></li>
+		</ul>
+
+	   <h1>Hermes Landscaping</h1>
+	   <p style="font-size:9px" class="note"><em>*we're not actually hermes landscaping I just used a review I found please I have no idea how copyright works but don't sue me <a href="review.png" target="_blank">(original review)</a></em></p>
+	   <p>We're finally back and ready for more lawn tortur... service. - <span>October 2015</span></p><br>
+	   <p>We're going offline for a few years. We got sued ... a couple of times. - <span>April 1999</span></p><br>
+	   <p>We sacked this kid. He wanted a 2$/day plan. Nah man that's too luxurious. - <span>March 1999</span></p><br>
+	   <p>We lost 100$ because I went gambling so I guess your paycheck is going down from 1$ a year to 50 cents a year. - <span>March 1999</span></p><br>
+	   <p>I tortured a guy to insanity for not working 24/7 (he missed 2 seconds on Tuesday). - <span>Febuary 1999</span></p><br>
+	   <p>I'm kinda lazy so I don't really want to write more news... - <span>September 1969</span></p><br>
+	   <p>The company has officially started. - <span>Febuary 1965</span></p><br>
+	   <script>
+	   		onresize = function(){
+			    for(var i = 0;i<document.getElementsByTagName("p").length;i++){
+			    	var el = document.getElementsByTagName("p")[i];
+			    	if(el.className=="") {
+			    		el.style.left = window.innerWidth/2 - el.offsetWidth/2 +"px"
+			    	}
+			    }
+		    }
+		    onresize();
+	   </script>
+	</body>
+</html>
