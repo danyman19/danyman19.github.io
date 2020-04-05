@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hermes Landscaping</title>
+		<link rel="icon" href="favicon.ico">
+		<style>
+			img{
+				height:200px;
+			}
+			h1,h2,p{
+				text-align:center;
+			}
+
+			ul {
+			  list-style-type: none;
+			  margin: 0;
+			  padding: 0;
+			  overflow: hidden;
+			  background-color: #333;
+			}
+
+			li {
+			  float: left;
+			}
+
+			li a {
+			  display: block;
+			  color: white;
+			  text-align: center;
+			  padding: 14px 16px;
+			  text-decoration: none;
+			}
+
+			li a:hover:not(.active) {
+			  background-color: #111;
+			}
+
+			.joblink{
+				color:black;
+				text-decoration: none;
+			}
+
+			.active {
+			  background-color: #4CAF50;
+			}
+
+			.job{
+				border:solid black 2px;
+				position:relative;
+				display:inline-block;
+				padding:1px 10px 1px 10px;
+				height:70px;
+			}
+
+			form{
+				display:none;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+		  <li><a href="index.html">Home</a></li>
+		  <li><a href="news.html">News</a></li>
+		  <li><a href="contact.html">Contact</a></li>
+		  <li><a class="active" href="jobs.html">Jobs</a></li>
+		  <li style="float:right"><a href="about.html">About</a></li>
+		</ul>
+
+	   <h1>Hermes Landscaping</h1>
+	   <p style="font-size:9px"><em>*we're not actually hermes landscaping I just used a review I found please I have no idea how copyright works but don't sue me <a href="review.png" target="_blank">(original review)</a></em></p>
+	   <div class="job">
+	   	<a class="joblink" onclick="servant()" href="#"><p>Job type: Servant<br>Job pay: 50 cents / year</p><br></a>
+	   	<form>
+		  <input type="text" id="servantfirstname" placeholder="First name" required><br>
+		  <input type="text" id="servantlastname" placeholder="Last name" required><br>
+		  <input type="email" id="servantemail" placeholder="Email" required><br>
+		  <button onclick="servantButton()">Sign up</button>
+		</form>
+		<p id="servantoutput"></p>
+		<br>
+	   </div>
+	   <br>
+	   <div class="job">
+	   	<a class="joblink" onclick="slave()" href="#"><p>Job type: Slave<br>Job pay: 0  / year</p><br></a>
+	   	<form>
+		  <input type="text" id="slavefirstname" placeholder="First name"><br>
+		  <input type="text" id="slavelastname" placeholder="Last name"><br>
+		  <input type="text" id="slaveemail" placeholder="Email"><br>
+		  <button onclick="slaveButton()">Sign up</button>
+		</form>
+		<p id="slaveoutput"></p>
+		<br>
+	   </div>
+
+	   <script>
+	   		onresize = function(){
+			    for(var i = 0;i<document.getElementsByTagName("div").length;i++){
+			    	var el = document.getElementsByTagName("div")[i];
+			    	if(el.className=="job") {
+			    		el.style.left = window.innerWidth/2 - el.offsetWidth/2 +"px";
+
+			    	}
+			    }
+		    }
+		    onresize();
+
+		    servant = function(){
+		    	document.getElementsByTagName("form")[0].style.display = "block";
+		    	document.getElementsByClassName("job")[0].style.height = "220px";
+		    	document.getElementsByTagName("form")[1].style.display = "none";
+		    	document.getElementsByClassName("job")[1].style.height = "70px";
+		    }
+
+		    servantButton = function(){
+		    	var el = document.getElementById("servantoutput");
+		    	var email = document.getElementById("servantemail").value;
+		    	var firstname = document.getElementById("servantfirstname").value;
+		    	var lastname = document.getElementById("servantlastname").value;
+		    	if(firstname!="" && lastname!="" && email!=""){
+		    		el.textContent = "Job request sent!";
+		    		document.getElementsByClassName("job")[0].style.height = "250px";
+
+		    		var n=window.open();
+		    		n.document.write(`<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+  </head><body style="padding:0; margin: 0;background: #ecefff">
+    <table style="height: 100%; width: 100%; background-color: #ecefff;" align="center">  
+      <tbody>
+        <tr>  
+          <td valign="top" id="dbody" data-version="2.31" style="width: 100%; height: 100%; margin-top: 50px; margin-bottom: 50px; padding-top: 100px; padding-bottom: 100px; background-color: #ecefff;">
+            <!--[if (gte mso 9)|(IE)]><table align="center" style="max-width:900px" width="900" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]-->
+            <!--[if (gte mso 9)|(IE)]><table align="center" style="max-width:1024px" width="1024" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]-->
+            <table class="layer_1" align="center" border="0" cellpadding="0" cellspacing="0" style="border-color: #32325c; max-width: 900px; box-sizing: border-box; width: 100%; margin: 0px auto;">  
+              <tbody>
+                <tr>
+                  <td class="drow" valign="top" align="center" style="background-color: #6303a4; box-sizing: border-box; font-size: 0px; text-align: center;">
+                    <!--[if (gte mso 9)|(IE)]><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]-->
+                    <!--[if (gte mso 9)|(IE)]></td><td valign="top"><![endif]-->
+                    <div class="layer_2" style="max-width: 900px; display: inline-block; vertical-align: top; width: 100%;">
+                      <table border="0" cellspacing="0" class="edcontent" style="border-collapse: collapse; width: 100%; background-color: #6303a4;">
+                        <tbody>
+                          <tr>
+                            <td valign="top" class="edtext" style="padding: 54px; text-align: left; color: #4a5568; font-size: 14px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;">
+                              <p class="style1" style="margin: 0px; padding: 0px; color: #32325c; font-size: 36px; font-family: Tahoma, Geneva, sans-serif;"><font color="#ffffff"><b>Welcome to Hermes landscaping</b></font></p><p style="margin: 0px; padding: 0px;"><strong>
+                                </strong>
+                              </p>
+                              <p style="margin: 0px; padding: 0px;"><font color="#ffffff">*wink</font></p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    
+                    <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+                  </td>
+                </tr>
+                <tr>
+                  <td class="drow" valign="top" align="center" style="background-color: #dde1ff; box-sizing: border-box; font-size: 0px; text-align: center;">
+                    <!--[if (gte mso 9)|(IE)]><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]-->
+                    <div class="layer_2" style="max-width: 300px; display: inline-block; vertical-align: top; width: 100%;">
+                      <table border="0" cellspacing="0" class="edcontent" style="border-collapse: collapse; width: 100%;">
+                        <tbody>
+                          <tr>
+                            <td valign="top" class="edtext" style="padding: 54px; text-align: left; color: #4a5568; font-size: 14px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;">
+                              <p class="style1 text-center" style="margin: 0px; padding: 0px; text-align: center; color: #32325c; font-size: 36px; font-family: Tahoma, Geneva, sans-serif;">
+                                <strong>54
+                                </strong>
+                              </p>
+                              <p style="margin: 0px; padding: 0px;">
+                                <strong>
+                                  <br>
+                                </strong>
+                              </p>
+                              <p class="text-center" style="margin: 0px; padding: 0px; text-align: center;">People killed</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!--[if (gte mso 9)|(IE)]></td><td valign="top"><![endif]-->
+                    <div class="layer_2" style="max-width: 300px; display: inline-block; vertical-align: top; width: 100%;">
+                      <table border="0" cellspacing="0" class="edcontent" style="border-collapse: collapse; width: 100%; background-color: #cad0ff;">
+                        <tbody>
+                          <tr>
+                            <td valign="top" class="edtext" style="padding: 54px; text-align: left; color: #4a5568; font-size: 14px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;">
+                              <p class="style1 text-center" style="margin: 0px; padding: 0px; text-align: center; color: #32325c; font-size: 36px; font-family: Tahoma, Geneva, sans-serif;"><b>1230</b></p>
+                              <p style="margin: 0px; padding: 0px;">
+                                <strong>
+                                  <br>
+                                </strong>
+                              </p>
+                              <p class="text-center" style="margin: 0px; padding: 0px; text-align: center;">Homeless</p><p><br></p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="layer_2" style="max-width: 300px; display: inline-block; vertical-align: top; width: 100%;">
+                      <table border="0" cellspacing="0" class="edcontent" style="border-collapse: collapse; width: 100%; background-color: #b0b8fa;">
+                        <tbody>
+                          <tr>
+                            <td valign="top" class="edtext" style="padding: 54px; text-align: left; color: #4a5568; font-size: 14px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;">
+                              <p class="style1 text-center" style="margin: 0px; padding: 0px; text-align: center; color: #32325c; font-size: 36px; font-family: Tahoma, Geneva, sans-serif;"><b>103432</b></p>
+                              <p style="margin: 0px; padding: 0px;">
+                                <strong>
+                                  <br>
+                                </strong>
+                              </p>
+                              <p class="text-center" style="margin: 0px; padding: 0px; text-align: center;">Disappointed customers</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+                  </td>
+                </tr>
+                  
+              </tbody>
+            </table>  
+            <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+          </td>
+        </tr>  
+      </tbody>
+    </table>  
+  
+</body></html>`);
+		    	}
+		    }
+
+		    slave = function(){
+		    	document.getElementsByTagName("form")[0].style.display = "none";
+		    	document.getElementsByClassName("job")[0].style.height = "70px";
+				document.getElementsByTagName("form")[1].style.display = "block";
+		    	document.getElementsByClassName("job")[1].style.height = "220px";
+		    }
+
+		    slaveButton = function(){
+		    	var el = document.getElementById("slaveoutput");
+		    	var email = document.getElementById("slaveemail").value;
+		    	var firstname = document.getElementById("slavefirstname").value;
+		    	var lastname = document.getElementById("slavelastname").value;
+		    	if(firstname!="" && lastname!="" && email!=""){
+		    		el.textContent = "Job request sent!";
+		    		document.getElementsByClassName("job")[1].style.height = "250px";
+
+		    		var n=window.open();
+		    		n.document.write(`<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+  </head><body style="padding:0; margin: 0;background: #ecefff">
+    <table style="height: 100%; width: 100%; background-color: #ecefff;" align="center">  
+      <tbody>
+        <tr>  
+          <td valign="top" id="dbody" data-version="2.31" style="width: 100%; height: 100%; margin-top: 50px; margin-bottom: 50px; padding-top: 100px; padding-bottom: 100px; background-color: #ecefff;">
+            <!--[if (gte mso 9)|(IE)]><table align="center" style="max-width:900px" width="900" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]-->
+            <!--[if (gte mso 9)|(IE)]><table align="center" style="max-width:1024px" width="1024" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]-->
+            <table class="layer_1" align="center" border="0" cellpadding="0" cellspacing="0" style="border-color: #32325c; max-width: 900px; box-sizing: border-box; width: 100%; margin: 0px auto;">  
+              <tbody>
+                <tr>
+                  <td class="drow" valign="top" align="center" style="background-color: #6303a4; box-sizing: border-box; font-size: 0px; text-align: center;">
+                    <!--[if (gte mso 9)|(IE)]><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]-->
+                    <!--[if (gte mso 9)|(IE)]></td><td valign="top"><![endif]-->
+                    <div class="layer_2" style="max-width: 900px; display: inline-block; vertical-align: top; width: 100%;">
+                      <table border="0" cellspacing="0" class="edcontent" style="border-collapse: collapse; width: 100%; background-color: #6303a4;">
+                        <tbody>
+                          <tr>
+                            <td valign="top" class="edtext" style="padding: 54px; text-align: left; color: #4a5568; font-size: 14px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;">
+                              <p class="style1" style="margin: 0px; padding: 0px; color: #32325c; font-size: 36px; font-family: Tahoma, Geneva, sans-serif;"><font color="#ffffff"><b>Welcome to Hermes landscaping</b></font></p><p style="margin: 0px; padding: 0px;"><strong>
+                                </strong>
+                              </p>
+                              <p style="margin: 0px; padding: 0px;"><font color="#ffffff">*wink</font></p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    
+                    <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+                  </td>
+                </tr>
+                <tr>
+                  <td class="drow" valign="top" align="center" style="background-color: #dde1ff; box-sizing: border-box; font-size: 0px; text-align: center;">
+                    <!--[if (gte mso 9)|(IE)]><table width="100%" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td valign="top"><![endif]-->
+                    <div class="layer_2" style="max-width: 300px; display: inline-block; vertical-align: top; width: 100%;">
+                      <table border="0" cellspacing="0" class="edcontent" style="border-collapse: collapse; width: 100%;">
+                        <tbody>
+                          <tr>
+                            <td valign="top" class="edtext" style="padding: 54px; text-align: left; color: #4a5568; font-size: 14px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;">
+                              <p class="style1 text-center" style="margin: 0px; padding: 0px; text-align: center; color: #32325c; font-size: 36px; font-family: Tahoma, Geneva, sans-serif;">
+                                <strong>54
+                                </strong>
+                              </p>
+                              <p style="margin: 0px; padding: 0px;">
+                                <strong>
+                                  <br>
+                                </strong>
+                              </p>
+                              <p class="text-center" style="margin: 0px; padding: 0px; text-align: center;">People killed</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!--[if (gte mso 9)|(IE)]></td><td valign="top"><![endif]-->
+                    <div class="layer_2" style="max-width: 300px; display: inline-block; vertical-align: top; width: 100%;">
+                      <table border="0" cellspacing="0" class="edcontent" style="border-collapse: collapse; width: 100%; background-color: #cad0ff;">
+                        <tbody>
+                          <tr>
+                            <td valign="top" class="edtext" style="padding: 54px; text-align: left; color: #4a5568; font-size: 14px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;">
+                              <p class="style1 text-center" style="margin: 0px; padding: 0px; text-align: center; color: #32325c; font-size: 36px; font-family: Tahoma, Geneva, sans-serif;"><b>1230</b></p>
+                              <p style="margin: 0px; padding: 0px;">
+                                <strong>
+                                  <br>
+                                </strong>
+                              </p>
+                              <p class="text-center" style="margin: 0px; padding: 0px; text-align: center;">Homeless</p><p><br></p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="layer_2" style="max-width: 300px; display: inline-block; vertical-align: top; width: 100%;">
+                      <table border="0" cellspacing="0" class="edcontent" style="border-collapse: collapse; width: 100%; background-color: #b0b8fa;">
+                        <tbody>
+                          <tr>
+                            <td valign="top" class="edtext" style="padding: 54px; text-align: left; color: #4a5568; font-size: 14px; font-family: &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; word-break: break-word; direction: ltr; box-sizing: border-box;">
+                              <p class="style1 text-center" style="margin: 0px; padding: 0px; text-align: center; color: #32325c; font-size: 36px; font-family: Tahoma, Geneva, sans-serif;"><b>103432</b></p>
+                              <p style="margin: 0px; padding: 0px;">
+                                <strong>
+                                  <br>
+                                </strong>
+                              </p>
+                              <p class="text-center" style="margin: 0px; padding: 0px; text-align: center;">Disappointed customers</p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+                  </td>
+                </tr>
+                  
+              </tbody>
+            </table>  
+            <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+          </td>
+        </tr>  
+      </tbody>
+    </table>  
+  
+</body></html>`);
+		    }
+		}
+	   </script>
+	</body>
+</html>
