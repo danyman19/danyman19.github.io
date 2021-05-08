@@ -56,7 +56,7 @@
       function submit(){
         var text = document.getElementById("link").value;
         var append = document.getElementById("append");
-        append = text+"<br>"+append;
+        append.innerHTML = text+"<br>"+append.innerHTML;
       }
 
       onresize = function(){
