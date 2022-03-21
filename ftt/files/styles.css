@@ -8,6 +8,17 @@ span {
   font-weight:bold;
 }
 
+#click {
+  font-family: Orbitron;
+  position: absolute;
+  left: 100px;
+  top: 800px;
+}
+
+#code {
+  font-family: Orbitron;
+}
+
 :any-link {
   color: green;
 }
