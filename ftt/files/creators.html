@@ -11,7 +11,7 @@
       }
 
       p {
-        
+
       }
 
       .option {
@@ -62,8 +62,8 @@
     <h1 class="lines">Please enable JS.</h1>
     <h1 class="center">Creators of FTT</h1>
     <h1 class="lines">Please enable JS.</h1>
-    <p class="center" style="font-size: 30px;">Danyman: Challenge Creator<br>TheLitblock: HTML and CSS artist<br>Thank you for playing FTT <br><br> <img src="logo.png"></p>
-
+    <p class="center" style="font-size: 30px;" ondblclick="unHide()">Danyman: Challenge Creator<br>TheLitblock: HTML and CSS artist<br>Thank you for playing FTT <br><br> <img src="logo.png"></p>
+    <p align = "center" id = "code" hidden="true">ftt{19c1487c29e7e9875ff58160944eb253}</p>
     <script>
       onresize = function(){
         for(var i = 0;i<document.getElementsByClassName("lines").length;i++){
@@ -80,6 +80,10 @@
       }
 
       onresize();
+
+      function unHide() {
+        document.getElementById("code").hidden = false;
+      }
     </script>
   </body>
 
